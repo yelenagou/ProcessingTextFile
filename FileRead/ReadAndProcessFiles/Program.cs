@@ -15,7 +15,7 @@ namespace ReadAndProcessFiles
         {
             FileInfo = new FileInformation();
 
-            Out.WriteLine("Please copy and paste file path for .csv or .tsv file");
+            Out.WriteLine("Please copy and paste file path in .csv or .tsv format");
            
             FileInfo.InputFileName = ReadLine();
 

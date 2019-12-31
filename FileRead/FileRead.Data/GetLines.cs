@@ -9,7 +9,19 @@ namespace FileRead.Data
     {
         public static List<string> ReturnDetailRecords(string fileRecords)
         {
-            var recordsReturned = fileRecords.Split('\n').ToList();
+            List<string> recordsReturned = new List<string>();
+            try { 
+             recordsReturned = fileRecords.Split('\n').ToList();
+          
+            }
+            catch (ArgumentNullException ne)
+            {
+                Console.WriteLine("Is your file correct?");
+            }
+            catch(NullReferenceException nr)
+            {
+                Console.WriteLine("Is your file correct?");
+            }
             return recordsReturned;
         }
         /// <summary>

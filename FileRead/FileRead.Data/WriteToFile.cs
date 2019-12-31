@@ -20,7 +20,10 @@ namespace FileRead.Data
         {
             string wrkDir = Environment.CurrentDirectory;
             string workingDirectory = Directory.GetParent(wrkDir).Parent.FullName;
-
+            var getParents = Directory.GetParent(wrkDir);
+            var imARoot = getParents.Root;
+            var imARootFullName = imARoot.FullName;
+            var supParent = getParents.Parent.Parent.Parent;
             
             return workingDirectory;
         }
