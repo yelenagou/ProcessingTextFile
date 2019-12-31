@@ -16,6 +16,16 @@ namespace FileRead.Data
             //Console.Out.WriteLine($"System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) {currentDirectoryPathIs}");
             return currentDirectoryPathIs;
         }
+        public static bool IsFileFormatCorrect(string inputFilename)
+        {
+            var invalidChars = inputFilename.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0;
+            return invalidChars;
+        }
+        public static bool DoesFileExist(string inputFileName)
+        {
+          bool doesExist =  !File.Exists(inputFileName);
+            return doesExist;
+        }
         public static string GetEnvironmentDirectory()
         {
             string wrkDir = Environment.CurrentDirectory;

@@ -13,7 +13,7 @@ namespace ReadFileTest
         [TestInitialize]
         public void TestInitialize()
         {
-            fut = GetFileName.ReadFileName(@"C:\Users\919842\source\repos\TechTest\TestFile.csv");
+            fut = GetFileName.ReadFileName(@"C:\Temp\TestFile.csv");
             readFileResults = GetLines.ReturnDetailRecords(fut);
 
         }
@@ -62,6 +62,18 @@ namespace ReadFileTest
         {
             var returnCurrentDirectory = WriteToFile.WriteReocrdAfterProcessing();
             Console.Out.WriteLine($"current directoyr is {returnCurrentDirectory}");
+        }
+        [TestMethod]
+        public void WriteToFile_IsFileFormatCorrect()
+        {
+            var result = WriteToFile.IsFileFormatCorrect(@"C:\Temp\TestFile.csv");
+            Assert.IsTrue(result, "File format is not correct");
+        }
+        [TestMethod]
+        public void WriteToFile_DoesFileExist()
+        {
+            var result = WriteToFile.DoesFileExist(@"C:\Temp\TestFile.csv");
+            Assert.IsTrue(result, "File format is not correct");
         }
     }
 }
