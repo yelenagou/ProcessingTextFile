@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace FileRead.Data
+{
+    public static class GetLines
+    {
+        public static List<string> ReturnDetailRecords(string fileRecords)
+        {
+            var recordsReturned = fileRecords.Split('\n').ToList();
+            return recordsReturned;
+        }
+        public static List<string> ReturnFields(string detailRecords)
+        {
+            List<string> parsedFields = new List<string>();
+           
+           return  parsedFields = detailRecords.Split(',').ToList();
+       
+        }
+        public static bool GetFieldCount(List<string> outputFields, int expectedFieldCount)
+        {
+            bool isCountCorrect = true;
+            if(outputFields.Count < expectedFieldCount)
+            {
+                isCountCorrect = false;
+            }
+            return isCountCorrect;
+        }
+        public static bool CheckFieldFormat(string fieldName)
+        {
+           
+            char[] capitalLetterPattern = fieldName.ToCharArray();
+            var isUpper = char.IsUpper(capitalLetterPattern[0]);
+
+            return isUpper;
+
+
+         
+        }
+    }
+}

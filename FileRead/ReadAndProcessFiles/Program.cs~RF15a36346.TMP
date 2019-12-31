@@ -1,0 +1,45 @@
+﻿using FileRead.Data;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using static System.Console;
+
+namespace ReadAndProcessFiles
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            WriteLine("Please enter file name for .csv or .tsv file");
+            var fileName = ReadLine();
+            var readResults = GetFileName.ReadFileName(fileName);
+            WriteLine("Enter number of fields");
+            var numberOfFields = ReadLine();
+            int fieldsInRecords = Convert.ToInt32(numberOfFields);
+
+
+            List<string> results = GetLines.ReturnDetailRecords(readResults);
+            char delimiter = GetFileName.CheckFileName(fileName);
+           
+            foreach (var rec in results)
+            {
+                var returnedFields = GetLines.ReturnFields(rec, delimiter);
+                var isRecordCorrect = GetLines.GetFieldCount(returnedFields, fieldsInRecords);
+                if(isRecordCorrect == false)
+                {
+                    var dirName = WriteToFile.EnvironmentGetDirecotyr();
+                    var pathCombined = Path.Combine(dirName, "fileout.txt");
+                    Out.WriteLine($"directory is {pathCombined}");
+                   File.WriteAllText(@"C:\Users\Public\TestFolder\WriteLines.txt",rec);
+
+                }
+            }
+           
+            Console.WriteLine($"the delimiter is {delimiter}");
+            Console.WriteLine(results.Count);
+            
+            
+            Console.ReadKey();
+        }
+    }
+}

@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
+using System.Text;
+
+namespace FileRead.Data
+{
+    public class WriteToFile
+    {
+        public static string  WriteReocrdAfterProcessing()
+        {
+            var currentDirectoryIs = Directory.GetCurrentDirectory();
+            var currentDirectoryPathIs = System.AppDomain.CurrentDomain.BaseDirectory;
+
+            return currentDirectoryPathIs;
+        }
+    }
+}

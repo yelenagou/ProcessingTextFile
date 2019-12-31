@@ -1,0 +1,7 @@
+C:\Users\919842\source\repos\TechTest\FileRead\ParseString\bin\Debug\netcoreapp3.1\ParseString.deps.json
+C:\Users\919842\source\repos\TechTest\FileRead\ParseString\bin\Debug\netcoreapp3.1\ParseString.dll
+C:\Users\919842\source\repos\TechTest\FileRead\ParseString\bin\Debug\netcoreapp3.1\ParseString.pdb
+C:\Users\919842\source\repos\TechTest\FileRead\ParseString\obj\Debug\netcoreapp3.1\ParseString.AssemblyInfoInputs.cache
+C:\Users\919842\source\repos\TechTest\FileRead\ParseString\obj\Debug\netcoreapp3.1\ParseString.AssemblyInfo.cs
+C:\Users\919842\source\repos\TechTest\FileRead\ParseString\obj\Debug\netcoreapp3.1\ParseString.dll
+C:\Users\919842\source\repos\TechTest\FileRead\ParseString\obj\Debug\netcoreapp3.1\ParseString.pdb
