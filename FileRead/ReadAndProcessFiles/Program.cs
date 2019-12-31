@@ -8,100 +8,63 @@ using static System.Console;
 
 namespace ReadAndProcessFiles
 {
-    class Program
+    public class Program
     {
         public static FileInformation FileInfo { get; set; }
         static void Main(string[] args)
         {
             FileInfo = new FileInformation();
 
-            WriteLine("Please enter file name for .csv or .tsv file");
+            Out.WriteLine("Please copy and paste file path for .csv or .tsv file");
+           
             FileInfo.InputFileName = ReadLine();
-            var readResults = GetFileName.ReadFileName(FileInfo.InputFileName);
+
+            FileInfo.ReadResults = GetFileName.ReadFileName(FileInfo.InputFileName);
             WriteLine("Enter number of fields");
             var numberOfFields = ReadLine();
             int fieldsInRecords = 0;
-            List<string> newResults = new List<string>();
+          
             try
             {
                 fieldsInRecords = Convert.ToInt32(numberOfFields);
                 FileInfo.NumberOfFields = fieldsInRecords;
 
-                List<string> results = GetLines.ReturnDetailRecords(readResults);
-                newResults = results.Skip(1).ToList();
+                FileInfo.Results = GetLines.ReturnDetailRecords(FileInfo.ReadResults);
+                FileInfo.NewResults = FileInfo.Results.Skip(1).ToList();
                 char delimiter = GetFileName.CheckFileName(FileInfo.InputFileName);
-               
-                var dirName = WriteToFile.GetEnvironmentDirectory();
+                //Once you run this, it'll write the files to your bin direcotry               
+                FileInfo.EnvironmentDirectory= WriteToFile.GetEnvironmentDirectory();
 
-                    foreach (var rec in newResults)
+                    foreach (var rec in FileInfo.NewResults)
                     {
+
                         var returnedFields = GetLines.ReturnFields(rec, delimiter);
                         var isRecordCorrect = GetLines.GetFieldCount(returnedFields, fieldsInRecords);
                         if (isRecordCorrect == false)
                         {
 
-                            var pathCombined = Path.Combine(dirName, "errorrecs.txt");
+                            var pathCombined = Path.Combine(FileInfo.EnvironmentDirectory, "errorrecs.txt");
                             Out.WriteLine($"directory is {pathCombined}");
                             WriteToFile.WriteErrorsToFile(pathCombined, rec);
-                            //File.WriteAllText(pathCombined,rec);
-
                         }
                         else
                         {
-                            var pathCombined = Path.Combine(dirName, "correct.txt");
+                            var pathCombined = Path.Combine(FileInfo.EnvironmentDirectory, "correct.txt");
                             Out.WriteLine($"directory is {pathCombined}");
                             WriteToFile.WriteErrorsToFile(pathCombined, rec);
                         }
                     }
 
                     Console.WriteLine($"the delimiter is {delimiter}");
-                    Console.WriteLine(newResults.Count);
-                
-
-               // Console.WriteLine($"file name is not correct");
+                    Console.WriteLine(FileInfo.NewResults.Count);
+               
             }
             catch(System.FormatException fe)
             {
-                Out.WriteLine("No fields were read");
+                Out.WriteLine($"No fields were read {fe}");
             }
 
-            //FileInfo.NumberOfFields = fieldsInRecords;
-
-            //List<string> results = GetLines.ReturnDetailRecords(readResults);
-         
-            //char delimiter = GetFileName.CheckFileName(FileInfo.InputFileName);
-            //if(delimiter != 'x')
-            //{ 
-            //foreach (var rec in results)
-            //{
-            //    var returnedFields = GetLines.ReturnFields(rec, delimiter);
-            //    var isRecordCorrect = GetLines.GetFieldCount(returnedFields, fieldsInRecords);
-            //    if(isRecordCorrect == false)
-            //    {
-
-            //        var dirName = WriteToFile.GetEnvironmentDirectory();
-            //        var pathCombined = Path.Combine(dirName, "errorrecs.txt");
-            //        Out.WriteLine($"directory is {pathCombined}");
-            //        WriteToFile.WriteErrorsToFile(pathCombined, rec);
-            //        //File.WriteAllText(pathCombined,rec);
-
-            //    }
-            //    else
-            //    {
-            //        var dirName = WriteToFile.GetEnvironmentDirectory();
-            //        var pathCombined = Path.Combine(dirName, "correct.txt");
-            //        Out.WriteLine($"directory is {pathCombined}");
-            //        WriteToFile.WriteErrorsToFile(pathCombined, rec);
-            //    }
-            //}
-
-            //    Console.WriteLine($"the delimiter is {delimiter}");
-            //    Console.WriteLine(results.Count);
-            //}
-
-            //Console.WriteLine($"file name is not correct");
-            
-            
+            Console.Out.WriteLine("Bonsoir, Elliot");
             Console.ReadKey();
         }
     }

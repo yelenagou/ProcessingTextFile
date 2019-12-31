@@ -8,20 +8,31 @@ namespace ReadFileTest
     [TestClass]
     public class TestReadData
     {
+        public static String fut = null;
+        public static List<string> readFileResults = new List<string>();
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            fut = GetFileName.ReadFileName(@"C:\Users\919842\source\repos\TechTest\TestFile.csv");
+            readFileResults = GetLines.ReturnDetailRecords(fut);
+
+        }
         [TestMethod]
         public void GetLines_ReturnData()
-        {
-            var readResults = GetFileName.ReadFileName(@"C:\Users\919842\source\repos\TechTest\TestFile.csv");
-            List<string> results = GetLines.ReturnDetailRecords(readResults);
-            Console.WriteLine(results.Count);
+        { 
+            Console.WriteLine(readFileResults.Count);
         }
+        /// <summary>
+        /// After parsing each line, validate that the number of fields, matches
+        /// teh input provided by the user
+        /// </summary>
         [TestMethod]
         public void GetLines_ReturnFields()
         {
-            var readResults = GetFileName.ReadFileName(@"C:\Users\919842\source\repos\TechTest\TestFile.csv");
-            List<string> results = GetLines.ReturnDetailRecords(readResults);
+           
             List<string> fieldsReturned = new List<string>();
-            foreach(var result in results)
+            //readFileResults
+            foreach(var result in readFileResults)
             {
                 fieldsReturned = GetLines.ReturnFields(result);
                 Console.WriteLine(fieldsReturned.Count);
@@ -31,11 +42,9 @@ namespace ReadFileTest
         [TestMethod]
         public void GetLines_CheckFieldFormat()
         {
-            var readResults = GetFileName.ReadFileName(@"C:\Users\919842\source\repos\TechTest\TestFile.csv");
-            List<string> results = GetLines.ReturnDetailRecords(readResults);
-            Console.WriteLine($"number of lines is {results.Count}");
+           
             List<string> fieldsReturned = new List<string>();
-            foreach (var result in results)
+            foreach (var result in readFileResults)
             {
                 fieldsReturned = GetLines.ReturnFields(result);
                 Console.WriteLine(fieldsReturned.Count);

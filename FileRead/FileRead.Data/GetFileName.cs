@@ -19,8 +19,7 @@ namespace FileRead.Data
         {
             string familyCourtFileContent = null;
             try { 
-              familyCourtFileContent = File.ReadAllText(fileName);
-            
+              familyCourtFileContent = File.ReadAllText(fileName);      
             }
             catch (FileNotFoundException)
             {
@@ -30,7 +29,6 @@ namespace FileRead.Data
             {
                 Console.WriteLine($"Directory cannot be found {dir.Message}");
             }
-
             catch (IOException e)
             {
                 Console.Out.WriteLine($"File not found");
