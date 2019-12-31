@@ -1,5 +1,5 @@
 # ProcessingTextFile
-Examples Of reading files
-The test file is in the ProcessingTextFile directory.
-You can use that to test or create your own. 
+A tetst file is included in the root. 
+At a prompt, copy and paste it, if you want to use the one included. 
+
 
