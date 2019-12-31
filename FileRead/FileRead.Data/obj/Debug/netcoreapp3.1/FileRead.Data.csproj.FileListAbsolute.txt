@@ -5,4 +5,3 @@ C:\Users\919842\source\repos\TechTest\FileRead\FileRead.Data\obj\Debug\netcoreap
 C:\Users\919842\source\repos\TechTest\FileRead\FileRead.Data\obj\Debug\netcoreapp3.1\FileRead.Data.AssemblyInfo.cs
 C:\Users\919842\source\repos\TechTest\FileRead\FileRead.Data\obj\Debug\netcoreapp3.1\FileRead.Data.dll
 C:\Users\919842\source\repos\TechTest\FileRead\FileRead.Data\obj\Debug\netcoreapp3.1\FileRead.Data.pdb
-C:\Users\919842\source\repos\TechTest\FileRead\FileRead.Data\obj\Debug\netcoreapp3.1\FileRead.Data.csprojAssemblyReference.cache
