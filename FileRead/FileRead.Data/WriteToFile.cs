@@ -35,11 +35,15 @@ namespace FileRead.Data
                    
                 }
             }
-            using (StreamWriter sw = File.AppendText(workingPath))
+            else
             {
-                sw.WriteLine(recToWrite);
-               
+                using (StreamWriter sw = File.AppendText(workingPath))
+                {
+                    sw.WriteLine(recToWrite);
+
+                }
             }
+            
         }
 
     }
