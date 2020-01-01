@@ -28,15 +28,21 @@ namespace ReadAndProcessFiles
            
            
             string numberOfFields = null;
-            int temp2 = 0;
+            int temp2;
             WriteLine("Enter number of fields");
             numberOfFields = ReadLine();
-            while (!int.TryParse(numberOfFields, out temp2))
+            while(ValueFormatter.isEmpty(numberOfFields) || !int.TryParse(numberOfFields, out temp2))
             {
-                numberOfFields = ReadLine();
                 WriteLine("Enter number of fields");
+                numberOfFields = ReadLine();
                
-            } 
+            }
+            //while (!int.TryParse(numberOfFields, out temp2))
+            //{
+            //    numberOfFields = ReadLine();
+            //    WriteLine("Enter number of fields");
+               
+            //} 
 
            // numberOfFields = ReadLine();
             int fieldsInRecords = 0;
