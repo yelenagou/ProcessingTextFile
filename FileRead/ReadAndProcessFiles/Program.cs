@@ -15,9 +15,8 @@ namespace ReadAndProcessFiles
         {
             FileInfo = new FileInformation();
 
-            Out.WriteLine("Please copy and paste file path in .csv or .tsv format");
-            FileInfo.InputFileName = ReadLine();
-            while (!(FileInfo.InputFileName.Length > 0))
+            
+            while (ValueFormatter.isEmpty(FileInfo.InputFileName))
             {
                 Out.WriteLine("Please copy and paste file path in .csv or .tsv format");
                 FileInfo.InputFileName = ReadLine();
@@ -29,22 +28,14 @@ namespace ReadAndProcessFiles
            
             string numberOfFields = null;
             int temp2;
-            WriteLine("Enter number of fields");
-            numberOfFields = ReadLine();
+           
             while(ValueFormatter.isEmpty(numberOfFields) || !int.TryParse(numberOfFields, out temp2))
             {
                 WriteLine("Enter number of fields");
                 numberOfFields = ReadLine();
                
             }
-            //while (!int.TryParse(numberOfFields, out temp2))
-            //{
-            //    numberOfFields = ReadLine();
-            //    WriteLine("Enter number of fields");
-               
-            //} 
-
-           // numberOfFields = ReadLine();
+           
             int fieldsInRecords = 0;
           
             try
