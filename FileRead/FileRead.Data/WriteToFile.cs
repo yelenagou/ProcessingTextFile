@@ -11,9 +11,7 @@ namespace FileRead.Data
         public static string  WriteReocrdAfterProcessing()
         {
             var currentDirectoryIs = Directory.GetCurrentDirectory();
-            //Console.Out.WriteLine($"Directory.GetCurrentDirectory is {currentDirectoryIs}");
             var currentDirectoryPathIs = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            //Console.Out.WriteLine($"System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) {currentDirectoryPathIs}");
             return currentDirectoryPathIs;
         }
         public static bool IsFileFormatCorrect(string inputFilename)
@@ -28,14 +26,25 @@ namespace FileRead.Data
         }
         public static string GetEnvironmentDirectory()
         {
+            string outputWorkingDirectory = null;
             string wrkDir = Environment.CurrentDirectory;
-            string workingDirectory = Directory.GetParent(wrkDir).Parent.FullName;
+            //string workingDirectory = Directory.GetParent(wrkDir).Parent.FullName;
             var getParents = Directory.GetParent(wrkDir);
             var imARoot = getParents.Root;
             var imARootFullName = imARoot.FullName;
             var supParent = getParents.Parent.Parent.Parent;
+            var homePath = supParent.ToString();
+            var resultPath = string.Concat(homePath, "\\", "OutputFiles");
+            if(!File.Exists(resultPath))
+            {
+                var subDirCreated = supParent.CreateSubdirectory("OutputFiles");
+                
+                outputWorkingDirectory = subDirCreated.FullName;
+
+            }
             
-            return workingDirectory;
+            
+            return outputWorkingDirectory;
         }
         public static void WriteErrorsToFile(string workingPath, string recToWrite)
         {

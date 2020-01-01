@@ -6,11 +6,3 @@ Yelena,,Gouralnik
 Kathy,Lee,Smith
 Norman,1,Peters
 Sunny,B,Gardner-Smith
-Yelena,,Gouralnik
-Kathy,Lee,Smith
-Norman,1,Peters
-Sunny,B,Gardner-Smith
-Yelena,,Gouralnik
-Kathy,Lee,Smith
-Norman,1,Peters
-Sunny,B,Gardner-Smith

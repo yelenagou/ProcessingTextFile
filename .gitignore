@@ -89,8 +89,10 @@ StyleCopReport.xml
 *.scc
 *.TMP
 *.tmp
-*FileRead/.vs
+*.vs/FileRead
 *.vs
+vs
+.bin
 
 # Chutzpah Test files
 _Chutzpah*
